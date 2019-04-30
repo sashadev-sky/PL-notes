@@ -27,7 +27,7 @@ L.DistortableImage.Guides = guide_strings;
 Reference the "keymapper" section below for an example on this.
 
 
-Keymapper
+## Keymapper
 
 help users quickly check the key bindings that have been defined `keymapper` **guide** helps users quickly check the key bindings that have been defined to perform different operations on the `Leaflet` overlays (images). With respect to `src/edit/tools/DistortableImage.Guides.js`, let's go through the process of creating one step-by-step.
 
