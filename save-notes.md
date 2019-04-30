@@ -1,3 +1,32 @@
+### Adding "DOMStrings" for custom toolbars
+
+Custom "DOMStrings" **(i.e., strings of HTML)** that define the custom toolbars can easily be added by describing those in the `src/edit/tools/DistortableImage.Guides.js` file and referencing those in the `addToolbar` method inside the `src/edit/DistortableImage.Edit.js` file.
+
+```js
+  // inside src/edit/DistortableImage.Edit.js
+
+	/* Add custom toolbars */
+		this._addToolbar = function(map, position, el, styleClass, DOMString) {
+			var custom_toolbar = L.control({ position: position });
+			custom_toolbar.onAdd = function() {
+				var el_wrapper = L.DomUtil.create(el, styleClass);
+				el_wrapper.innerHTML = DOMString;
+				return el_wrapper;
+			};
+			custom_toolbar.addTo(map);
+    };
+```
+
+```js
+// inside src/edit/tools/DistortableImage.Guides.js
+
+// add guides here for custom toolbars
+var guide_strings = [dom_string];
+L.DistortableImage.Guides = guide_strings;
+```
+Reference the "keymapper" section below for an example on this.
+
+
 Keymapper
 
 help users quickly check the key bindings that have been defined `keymapper` **guide** helps users quickly check the key bindings that have been defined to perform different operations on the `Leaflet` overlays (images). With respect to `src/edit/tools/DistortableImage.Guides.js`, let's go through the process of creating one step-by-step.
